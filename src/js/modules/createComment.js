@@ -3,7 +3,7 @@ import deleteCommentaries from "./deleteCommentaries";
 import messageCounter from "./messageCounter";
 
 const createComment = (comments, parent) => {
-    const form = document.querySelector(".commentaries-form");
+    const form = document.forms.commentaries;
 
     //Счетчик комментариев
     messageCounter(comments.length);
@@ -37,43 +37,21 @@ const createComment = (comments, parent) => {
     comments.forEach((comment, i) => {
         parent.innerHTML += `
         <li class="commentaries__item">
-        <div class="commentaries__header">
-        <section
-        class="commentaries__author-wrapper"
-        >
-        <h3 class="commentaries__author">
-        
-        </h3>
-        <time
-        class="commentaries__date"
-        datetime=${comment.dateForTimeAttr}
-        >${comment.date}</time
-        >
-        </section>
-        <i
-        class="commentaries__delete fa-regular fa-trash-can"
-        title="Удалить комментарий"
-        ></i>
-        </div>
-        <div class="commentaries__content">
-        <p class="commentaries__text">
-        
-        </p>
-        <div
-        class="commentaries-actions"
-        title="Нравится"
-        >
-        <i
-        class="commentaries-actions__icon fa-regular fa-heart commentaries-like"
-        ></i>
-        <div
-        class="commentaries-actions__counter commentaries-like-counter"
-        >
-        0
-        </div>
-        </div>
-        </div>
-    </li>
+            <div class="commentaries__header">
+                <section class="commentaries__author-wrapper" >
+                    <h3 class="commentaries__author"></h3>
+                    <time class="commentaries__date" datetime=${comment.dateForTimeAttr}>${comment.date}</time>
+                </section>
+                <i class="commentaries__delete fa-regular fa-trash-can" title="Удалить комментарий"></i>
+            </div>
+            <div class="commentaries__content">
+                <p class="commentaries__text"></p>
+                <div class="commentaries-actions" title="Нравится">
+                    <i class="commentaries-actions__icon fa-regular fa-heart commentaries-like"></i>
+                    <div class="commentaries-actions__counter commentaries-like-counter">0</div>
+                </div>
+            </div>
+        </li>
     `;
         //Ввод в формы через textContent, чтобы не "сломать"
         const author = document.querySelectorAll(".commentaries__author");

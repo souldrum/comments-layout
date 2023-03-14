@@ -15,6 +15,12 @@ window.addEventListener("DOMContentLoaded", () => {
         counterSelector: ".like-counter",
     });
 
+    likesCounter({
+        triggerSelector: ".commentaries-actions",
+        likeSelector: ".commentaries-like",
+        counterSelector: ".commentaries-like-counter",
+    });
+
     openForm();
     commentariesForm();
     textAreaSize();

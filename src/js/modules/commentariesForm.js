@@ -3,14 +3,14 @@ import transformDataForTimeAttr from "./transformDataForTimeAttr";
 import createComment from "./createComment";
 
 const commentariesForm = () => {
-    const form = document.querySelector(".commentaries-form");
-    const inputName = form.querySelector(".commentaries-form__name");
-    const inputDate = document.querySelector(".commentaries-form__date");
-    const textArea = form.querySelector(".commentaries-form__text-field");
+    const form = document.forms.commentaries;
+    const inputName = form.elements.author;
+    const inputDate = form.elements.date;
+    const textArea = form.elements.textfield;
     const commentsList = document.querySelector(".commentaries__list");
-
     const closeForm = form.querySelector(".commentaries-form__close");
 
+    //Создание блока ошибки валидации
     const errorMessage = document.createElement("div");
     errorMessage.classList.add("commentaries-form__error_hidden");
     errorMessage.textContent = "Это поле обязательно для заполнения!";
@@ -29,7 +29,6 @@ const commentariesForm = () => {
                 const newEvent = new Event("submit", { cancelable: true });
                 e.target.form.dispatchEvent(newEvent);
             }
-            form.reset();
         }
     };
 
@@ -44,12 +43,38 @@ const commentariesForm = () => {
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
+        //Функция проверки незаполненных полей
+        const validateField = (activeInput, targetInput) => {
+            if (!targetInput.value || targetInput.value.trim() === "") {
+                targetInput.addEventListener("input", () => {
+                    activeInput.removeAttribute("disabled");
+                    errorMessage.classList.remove("commentaries-form__error");
+                    errorMessage.classList.add(
+                        "commentaries-form__error_hidden"
+                    );
+                    targetInput.classList.remove("input_error");
+                });
+
+                errorMessage.classList.add("commentaries-form__error");
+                errorMessage.classList.remove(
+                    "commentaries-form__error_hidden"
+                );
+                targetInput.classList.add("input_error");
+                targetInput.focus();
+
+                activeInput.setAttribute("disabled");
+            }
+        };
+        validateField(textArea, inputName);
+        validateField(inputName, textArea);
+
         const formBody = {
             author: inputName.value,
             date: transformDate(inputDate.value),
             dateForTimeAttr: transformDataForTimeAttr(inputDate.value),
             comment: textArea.value,
         };
+
         commentariesStack.push(formBody);
         createComment(commentariesStack, commentsList);
 
@@ -60,22 +85,3 @@ const commentariesForm = () => {
 };
 
 export default commentariesForm;
-
-// const validateField = (activeInput, targetInput) => {
-//     if (!targetInput.value || targetInput.value.trim()) {
-//         errorMessage.classList.add("commentaries-form__error");
-//         errorMessage.classList.remove("commentaries-form__error_hidden");
-//         targetInput.classList.add("input_error");
-//         activeInput.toggleAttribute("disabled");
-//     }
-//     targetInput.addEventListener("input", () => {
-//         activeInput.toggleAttribute("disabled");
-
-//         errorMessage.classList.remove("commentaries-form__error");
-//         errorMessage.classList.add("commentaries-form__error_hidden");
-//         targetInput.classList.remove("input_error");
-//         activeInput.disabled = false;
-//     });
-// };
-// validateField(inputName, textArea);
-// validateField(textArea, inputName);
