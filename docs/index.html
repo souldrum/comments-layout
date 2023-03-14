@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="favicon/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="favicon/site.webmanifest" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+
+        <script
+            src="https://kit.fontawesome.com/e661d6abfa.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>VKомментах</title>
+        <script
+            type="module"
+            crossorigin
+            src="assets/index-a140f2b3.js"
+        ></script>
+        <link rel="stylesheet" href="assets/index-2821c02f.css" />
+        <script type="module">
+            import.meta.url;
+            import("_").catch(() => 1);
+            async function* g() {}
+            window.__vite_is_modern_browser = true;
+        </script>
+        <script type="module">
+            !(function () {
+                if (window.__vite_is_modern_browser) return;
+                console.warn(
+                    "vite: loading legacy chunks, syntax error above and the same error below should be ignored"
+                );
+                var e = document.getElementById("vite-legacy-polyfill"),
+                    n = document.createElement("script");
+                (n.src = e.src),
+                    (n.onload = function () {
+                        System.import(
+                            document
+                                .getElementById("vite-legacy-entry")
+                                .getAttribute("data-src")
+                        );
+                    }),
+                    document.body.appendChild(n);
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="app">
+            <div class="header">
+                <div class="header__container container">
+                    <section class="header__logo">
+                        <img
+                            class="header__icon"
+                            src="images/vk-logo.svg"
+                            alt="vk-logo"
+                        />
+                        <h1 class="header__title">вкомментах</h1>
+                    </section>
+                    <div class="header__avatar-box">
+                        <img
+                            class="header__avatar-photo"
+                            src="images/Brendan_Eich_avatar.jpg"
+                            alt="Profile photo"
+                        />
+                    </div>
+                </div>
+            </div>
+            <!--/.header-->
+
+            <main class="content">
+                <div class="content__container container">
+                    <div class="wall-for-posts">
+                        <div class="wall-for-posts__spacing"></div>
+                        <div class="wall-for-posts__post post">
+                            <section class="post__author">
+                                <div class="post__avatar-box">
+                                    <img
+                                        class="post__avatar-photo avatar-photo"
+                                        src="images/Brendan_Eich_avatar.jpg"
+                                        alt="Author"
+                                        width="150"
+                                    />
+                                </div>
+                                <div class="post__info-col">
+                                    <h3 class="post__author-name">
+                                        Brendan Eich
+                                    </h3>
+                                    <time
+                                        class="post__time time"
+                                        datetime="08-03-2023"
+                                        >08.03.2023</time
+                                    >
+                                </div>
+                            </section>
+                            <p class="post__text"></p>
+                            <div class="post-actions">
+                                <div
+                                    class="post-actions__icon-wrapper like-wrapper"
+                                    title="Нравится"
+                                >
+                                    <i
+                                        class="post-actions__icon fa-regular fa-heart post-like"
+                                    ></i>
+                                    <div
+                                        class="post-actions__counter like-counter"
+                                    >
+                                        100
+                                    </div>
+                                </div>
+                                <div
+                                    class="post-actions__icon-wrapper speech-wrapper"
+                                    title="Комментировать"
+                                >
+                                    <i
+                                        class="post-actions__icon fa-regular fa-comment"
+                                    ></i>
+                                    <div
+                                        class="post-actions__counter answer-counter"
+                                    ></div>
+                                </div>
+                                <div
+                                    class="post-actions__icon-wrapper"
+                                    title="Поделиться"
+                                >
+                                    <i
+                                        class="post-actions__icon fa-regular fa-share-from-square"
+                                    ></i>
+                                </div>
+                            </div>
+                            <form
+                                class="commentaries-form commentaries-form_hidden"
+                            >
+                                <div class="commentaries-form__inputs-data">
+                                    <input
+                                        class="commentaries-form__name input"
+                                        name="author"
+                                        type="text"
+                                        placeholder="Ваше имя"
+                                        title="Введите имя"
+                                    />
+                                    <input
+                                        class="commentaries-form__date input"
+                                        name="date"
+                                        type="date"
+                                        title="Введите дату публикации"
+                                    />
+                                    <div
+                                        class="commentaries-form__close-wrapper"
+                                    >
+                                        <i
+                                            class="commentaries-form__close fa-solid fa-xmark"
+                                            title="Закрыть"
+                                        ></i>
+                                    </div>
+                                </div>
+
+                                <div class="commentaries-form__message">
+                                    <textarea
+                                        class="commentaries-form__text-field input"
+                                        name="commentaries"
+                                        placeholder="Написать комментарий..."
+                                    ></textarea>
+                                    <label for="submit">
+                                        <i
+                                            class="commentaries-form__send-btn fa-solid fa-paper-plane"
+                                            title="Опубликовать комментарий"
+                                        ></i>
+                                    </label>
+                                    <input id="submit" type="submit" value="" />
+                                </div>
+                            </form>
+                            <!--/.commentaries-form-->
+                        </div>
+                        <!--/.post-->
+
+                        <div class="commentaries post">
+                            <h2 class="commentaries__title">
+                                Комментарии к посту
+                            </h2>
+                            <ul class="commentaries__list"></ul>
+                        </div>
+                        <!--/.commentaries-->
+                        <section class="message-help">
+                            <h3 class="message-help__text">
+                                Это сообщение пока не прокомментировали.
+                                <span
+                                    class="message-help__text message-help__text_blue"
+                                    >Ответьте первым!</span
+                                >
+                            </h3>
+                        </section>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <script nomodule>
+            !(function () {
+                var e = document,
+                    t = e.createElement("script");
+                if (!("noModule" in t) && "onbeforeload" in t) {
+                    var n = !1;
+                    e.addEventListener(
+                        "beforeload",
+                        function (e) {
+                            if (e.target === t) n = !0;
+                            else if (!e.target.hasAttribute("nomodule") || !n)
+                                return;
+                            e.preventDefault();
+                        },
+                        !0
+                    ),
+                        (t.type = "module"),
+                        (t.src = "."),
+                        e.head.appendChild(t),
+                        t.remove();
+                }
+            })();
+        </script>
+        <script
+            nomodule
+            crossorigin
+            id="vite-legacy-polyfill"
+            src="assets/polyfills-legacy-21fcbdc6.js"
+        ></script>
+        <script
+            nomodule
+            crossorigin
+            id="vite-legacy-entry"
+            data-src="assets/index-legacy-5ab8a676.js"
+        >
+            System.import(
+                document
+                    .getElementById("vite-legacy-entry")
+                    .getAttribute("data-src")
+            );
+        </script>
+    </body>
+</html>
