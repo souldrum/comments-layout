@@ -1,0 +1,56 @@
+.commentaries
+    &__title
+        color: $BlueText
+        padding-bottom: .5rem
+
+        border-bottom: .1rem solid $BorderInput
+    &__list
+        margin: 0
+    &__item
+        display: flex
+        flex-direction: column
+        padding: .5rem 0
+        border-bottom: .1rem solid $BorderInput
+        &_hidden
+            display: none
+    &__header
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__author-wrapper
+        display: flex
+        flex-direction: column
+    &__author
+        color: $BlueText
+        font: 500 normal 1rem $RobotoFontStack
+    &__date
+        color: $DateColor
+        font: 400 normal 1rem $RobotoFontStack
+    &__delete
+        color: $BorderInput
+        font-size: 1rem
+        transition: color .2s
+        &:hover
+            cursor: pointer
+            color: $DateColor
+    &__text
+        margin: .5rem 0 0 1rem
+        padding: 0 .5rem
+
+        border-left: .1px solid $MainBorderColor
+    &_hidden
+        display: none
+
+.commentaries-actions
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+    color: $BorderInput
+
+    transition: color .2s
+    &:hover
+        cursor: pointer
+        color: $DateColor
+    &__counter
+        font-size: .8rem
+        padding-left: .5rem

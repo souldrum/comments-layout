@@ -1,0 +1,72 @@
+.content
+    margin-top: 4rem
+
+.post
+    width: 100%
+    padding: 1rem
+    margin-bottom: 1rem
+
+    background: #fff
+    border-radius: .7rem
+    +BoxShadowStack
+    &__author
+        display: flex
+        align-items: center
+    &__avatar-box
+        +AvatarWrapper(5rem, 5rem)
+    &__info-col
+        padding: 0.5rem
+    &__author-name
+        font: 700 normal 1.2rem $RobotoFontStack
+    &__text
+        padding: 1rem 0
+    &-actions
+        display: flex
+        &__icon-wrapper
+            position: relative
+
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 1rem
+            margin-right: .5rem
+            height: 2rem
+
+            border-radius: 1rem
+            background: $MainBackground
+
+            transition: background .2s
+            &:hover
+                cursor: pointer
+                background: #e1e3e5
+        &__icon
+            font-size: 1.2rem
+            color: $DateColor
+
+        &__counter
+            display: flex
+            justify-content: center
+            align-items: center
+            padding-left: .5rem
+            height: inherit
+
+            color: $DateColor
+            font: 500 normal 1rem $RobotoFontStack
+
+.time
+    color: $DateColor
+
+    font: 400 normal 1rem $RobotoFontStack
+.views
+    &-wrapper
+        flex-basis: 0
+        flex-grow: 1
+        justify-content: flex-end
+    &__counter
+        padding: 0 .5rem 0 0
+
+.fa-solid
+    color: #ff0000
+.like-counter
+    &_red
+        color: #ff0000

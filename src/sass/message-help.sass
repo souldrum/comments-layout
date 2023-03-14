@@ -1,0 +1,16 @@
+.message-help
+    display: flex
+    justify-content: center
+    padding: 1rem
+    &__text
+        color: $DateColor
+
+        font: 400 normal 1rem $RobotoFontStack
+        &_blue
+            color: $BlueText
+            &:hover
+                cursor: pointer
+                text-decoration: underline
+                transition: text-decoration .2s linear
+    &_hidden
+        display: none
