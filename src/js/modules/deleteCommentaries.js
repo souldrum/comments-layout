@@ -1,6 +1,6 @@
-import createComment from "./createComment";
+import createComments from "./createComments";
 
-const deleteCommentaries = (arrComments, commentsWrapp) => {
+const deleteCommentaries = (arrComments) => {
     const allComments = document.querySelectorAll(".commentaries__item");
 
     allComments.forEach((comment, i) => {
@@ -10,8 +10,10 @@ const deleteCommentaries = (arrComments, commentsWrapp) => {
             comment.remove();
             arrComments.splice(i, 1);
 
+            localStorage.setItem("comments", JSON.stringify(arrComments));
+
             //рекурсия для обнуления
-            createComment(arrComments, commentsWrapp);
+            createComments(arrComments);
         });
     });
 };

@@ -1,13 +1,12 @@
 import transformDate from "./transformDate";
 import transformDataForTimeAttr from "./transformDataForTimeAttr";
-import createComment from "./createComment";
+import createComments from "./createComments";
 
 const commentariesForm = () => {
     const form = document.forms.commentaries;
     const inputName = form.elements.author;
     const inputDate = form.elements.date;
     const textArea = form.elements.textfield;
-    const commentsList = document.querySelector(".commentaries__list");
     const closeForm = form.querySelector(".commentaries-form__close");
 
     //Создание блока ошибки валидации
@@ -16,9 +15,14 @@ const commentariesForm = () => {
     errorMessage.textContent = "Это поле обязательно для заполнения!";
     textArea.parentNode.before(errorMessage);
 
-    const commentariesStack = [];
+    let commentariesStack = [];
 
-    createComment(commentariesStack, commentsList);
+    createComments(commentariesStack);
+
+    if (localStorage.getItem("comments")) {
+        commentariesStack = JSON.parse(localStorage.getItem("comments"));
+        createComments(commentariesStack);
+    }
 
     //Отправка textarea при нажатии на Enter
     const submitTextArea = (e) => {
@@ -77,11 +81,12 @@ const commentariesForm = () => {
 
         commentariesStack.push(formBody);
 
-        e.target.reset();
-        createComment(commentariesStack, commentsList);
-    });
+        console.log(commentariesStack);
+        createComments(commentariesStack);
 
-    return commentariesStack;
+        localStorage.setItem("comments", JSON.stringify(commentariesStack));
+        e.target.reset();
+    });
 };
 
 export default commentariesForm;
