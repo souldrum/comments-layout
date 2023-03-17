@@ -76,9 +76,9 @@ const commentariesForm = () => {
         };
 
         commentariesStack.push(formBody);
-        createComment(commentariesStack, commentsList);
 
         e.target.reset();
+        createComment(commentariesStack, commentsList);
     });
 
     return commentariesStack;
