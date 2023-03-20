@@ -1,53 +1,37 @@
+import createComments from "./createComments";
+
 const likesCounter = (props) => {
-    const {
-        triggerSelector,
-        likeSelector,
-        counterSelector,
-        defaultLike = "fa-regular",
-        activeLike = "fa-solid",
-        activeCounter = "like-counter_red",
-    } = props;
+    const { commentsData = [], triggerSelector, counterSelector } = props;
 
-    const likeWrappers = document.querySelectorAll(triggerSelector);
-    const likes = document.querySelectorAll(likeSelector);
-    const likeCounters = document.querySelectorAll(counterSelector);
+    const likeWrapper = document.querySelectorAll(triggerSelector);
+    const likeCounterContent = document.querySelectorAll(counterSelector);
 
-    let counter;
+    commentsData.forEach((el, i) => {
+        let counter;
+        console.log(el.likeCounter);
 
-    likeCounters.forEach((likeCounter) => {
-        counter = +likeCounter.textContent;
-
+        counter = el.likeCounter;
         if (counter === 0) {
-            likeCounter.style.display = "none";
+            likeCounterContent[i].style.display = "none";
         }
-    });
 
-    likeWrappers.forEach((wrapper, i) => {
-        wrapper.addEventListener("click", () => {
-            counter = +likeCounters[i].textContent;
+        likeWrapper[i].addEventListener("click", () => {
+            if (el.isLiked === false) {
+                el.isLiked = true;
 
-            if (likes[i].classList.contains(defaultLike)) {
-                likeCounters[i].style.display = "flex";
+                likeCounterContent[i].style.display = "flex";
                 counter++;
-
-                likes[i].classList.remove(defaultLike);
-                likes[i].classList.add(activeLike);
-                likeCounters[i].classList.add(activeCounter);
-
-                likeCounters[i].textContent = counter;
             } else {
+                el.isLiked = false;
+
                 counter--;
 
                 if (counter === 0) {
-                    likeCounters[i].style.display = "none";
+                    likeCounterContent[i].style.display = "none";
                 }
-
-                likes[i].classList.add(defaultLike);
-                likes[i].classList.remove(activeLike);
-                likeCounters[i].classList.remove(activeCounter);
-
-                likeCounters[i].textContent = counter;
             }
+            el.likeCounter = counter;
+            createComments(commentsData);
         });
     });
 };

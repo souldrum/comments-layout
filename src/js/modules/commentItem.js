@@ -1,4 +1,4 @@
-const commentItem = (dateAttr, date) => {
+const commentItem = (dateAttr, date, isLiked, likeCounter) => {
     //Ввод в формы через textContent, чтобы не "сломать"
 
     const comment = document.createElement("li");
@@ -14,11 +14,16 @@ const commentItem = (dateAttr, date) => {
       <div class="commentaries__content">
         <p class="commentaries__text"></p>
         <div class="commentaries-actions" title="Нравится">
-            <i class="commentaries-actions__icon fa-regular fa-heart commentaries-like"></i>
-            <div class="commentaries-actions__counter commentaries-like-counter">0</div>
+            <i class="commentaries-actions__icon ${
+                isLiked ? "fa-solid" : "fa-regular"
+            } fa-heart commentaries-like"></i>
+            <div class="commentaries-actions__counter commentaries-like-counter ${
+                isLiked ? "like-counter_red" : ""
+            }">${likeCounter}</div>
         </div>
       </div>
   `;
+
     return comment;
 };
 
