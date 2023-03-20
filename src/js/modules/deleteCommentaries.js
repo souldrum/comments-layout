@@ -12,7 +12,7 @@ const deleteCommentaries = (arrComments) => {
 
             localStorage.setItem("comments", JSON.stringify(arrComments));
 
-            //рекурсия для обнуления
+            // //рекурсия для обнуления
             createComments(arrComments);
         });
     });

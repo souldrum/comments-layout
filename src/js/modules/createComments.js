@@ -2,25 +2,12 @@ import likesCounter from "./likesCounter";
 import deleteCommentaries from "./deleteCommentaries";
 import messageCounter from "./messageCounter";
 import commentItem from "./commentItem";
+import hideNoActiveBlock from "./hideNoActiveBlock";
 
 const createComments = (comments) => {
     const commentsList = document.querySelector(".commentaries__list");
-    const form = document.forms.commentaries;
 
     //Скрывать, или показывать блоки в зависимости от наличия, или отсутствия комментариев
-    const hideNoActiveBlock = (arr, classWrapp, classHelp, classForm) => {
-        const commentsWrapper = document.querySelector(".commentaries");
-        const messageHelp = document.querySelector(".message-help");
-
-        if (!arr.length) {
-            commentsWrapper.classList.add(classWrapp);
-            messageHelp.classList.remove(classHelp);
-            form.classList.add(classForm);
-        } else {
-            commentsWrapper.classList.remove(classWrapp);
-            messageHelp.classList.add(classHelp);
-        }
-    };
 
     hideNoActiveBlock(
         comments,
@@ -34,24 +21,31 @@ const createComments = (comments) => {
     commentsList.innerHTML = "";
 
     comments.forEach((item, i) => {
-        const { author, date, dateForTimeAttr, comment } = item;
+        const { author, date, dateForTimeAttr, comment, isLiked, likeCounter } =
+            item;
 
-        const oneComment = commentItem(dateForTimeAttr, date);
+        const oneComment = commentItem(
+            dateForTimeAttr,
+            date,
+            isLiked,
+            likeCounter
+        );
         commentsList.append(oneComment);
 
         const authorName = document.querySelectorAll(".commentaries__author");
         authorName[i].textContent = author;
         const text = document.querySelectorAll(".commentaries__text");
         text[i].textContent = comment;
+
+        //лайки
     });
 
-    //лайки
     likesCounter({
+        commentsData: comments,
         triggerSelector: ".commentaries-actions",
         likeSelector: ".commentaries-like",
         counterSelector: ".commentaries-like-counter",
     });
-
     //Счетчик комментариев
     messageCounter(comments.length);
 
