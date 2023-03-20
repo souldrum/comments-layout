@@ -1,7 +1,7 @@
 import createComments from "./createComments";
 
 const likesCounter = (props) => {
-    const { commentsData = [], triggerSelector, counterSelector } = props;
+    const { commentsData, triggerSelector, counterSelector } = props;
 
     const likeWrapper = document.querySelectorAll(triggerSelector);
     const likeCounterContent = document.querySelectorAll(counterSelector);
@@ -31,7 +31,8 @@ const likesCounter = (props) => {
                 }
             }
             el.likeCounter = counter;
-            createComments(commentsData);
+            localStorage.setItem("comments", JSON.stringify(commentsData));
+            createComments(JSON.parse(localStorage.getItem("comments")));
         });
     });
 };

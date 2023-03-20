@@ -36,16 +36,16 @@ const createComments = (comments) => {
         authorName[i].textContent = author;
         const text = document.querySelectorAll(".commentaries__text");
         text[i].textContent = comment;
-
-        //лайки
     });
 
+    //лайки
     likesCounter({
         commentsData: comments,
         triggerSelector: ".commentaries-actions",
         likeSelector: ".commentaries-like",
         counterSelector: ".commentaries-like-counter",
     });
+
     //Счетчик комментариев
     messageCounter(comments.length);
 
