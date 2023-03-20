@@ -56,7 +56,6 @@ const commentariesForm = () => {
         };
 
         commentariesStack.push(formBody);
-
         localStorage.setItem("comments", JSON.stringify(commentariesStack));
 
         console.log(commentariesStack);
