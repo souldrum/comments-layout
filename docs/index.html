@@ -34,7 +34,7 @@
         <script
             type="module"
             crossorigin
-            src="assets/index-e8a1ae1c.js"
+            src="assets/index-004058f5.js"
         ></script>
         <link rel="stylesheet" href="assets/index-15113c6e.css" />
         <script type="module">
@@ -114,19 +114,6 @@
                             <p class="post__text"></p>
                             <div class="post-actions">
                                 <div
-                                    class="post-actions__icon-wrapper like-wrapper"
-                                    title="Нравится"
-                                >
-                                    <i
-                                        class="post-actions__icon fa-regular fa-heart post-like"
-                                    ></i>
-                                    <div
-                                        class="post-actions__counter like-counter"
-                                    >
-                                        100
-                                    </div>
-                                </div>
-                                <div
                                     class="post-actions__icon-wrapper speech-wrapper"
                                     title="Комментировать"
                                 >
@@ -158,6 +145,7 @@
                                         placeholder="Ваше имя"
                                         title="Введите имя"
                                         autocomplete="off"
+                                        tabindex="1"
                                     />
                                     <input
                                         class="commentaries-form__date input"
@@ -183,8 +171,12 @@
                                         placeholder="Написать комментарий..."
                                         title="Напишите комментарий"
                                         autocomplete="off"
+                                        tabindex="2"
                                     ></textarea>
-                                    <label for="submit">
+                                    <label
+                                        class="commentaries-form__label"
+                                        for="submit"
+                                    >
                                         <i
                                             class="commentaries-form__send-btn fa-solid fa-paper-plane"
                                             title="Опубликовать комментарий"
@@ -251,7 +243,7 @@
             nomodule
             crossorigin
             id="vite-legacy-entry"
-            data-src="assets/index-legacy-5af73abd.js"
+            data-src="assets/index-legacy-9bc18ac5.js"
         >
             System.import(
                 document
