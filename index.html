@@ -83,19 +83,6 @@
                             <p class="post__text"></p>
                             <div class="post-actions">
                                 <div
-                                    class="post-actions__icon-wrapper like-wrapper"
-                                    title="Нравится"
-                                >
-                                    <i
-                                        class="post-actions__icon fa-regular fa-heart post-like"
-                                    ></i>
-                                    <div
-                                        class="post-actions__counter like-counter"
-                                    >
-                                        100
-                                    </div>
-                                </div>
-                                <div
                                     class="post-actions__icon-wrapper speech-wrapper"
                                     title="Комментировать"
                                 >
@@ -127,6 +114,7 @@
                                         placeholder="Ваше имя"
                                         title="Введите имя"
                                         autocomplete="off"
+                                        tabindex="1"
                                     />
                                     <input
                                         class="commentaries-form__date input"
@@ -152,8 +140,12 @@
                                         placeholder="Написать комментарий..."
                                         title="Напишите комментарий"
                                         autocomplete="off"
+                                        tabindex="2"
                                     ></textarea>
-                                    <label for="submit">
+                                    <label
+                                        class="commentaries-form__label"
+                                        for="submit"
+                                    >
                                         <i
                                             class="commentaries-form__send-btn fa-solid fa-paper-plane"
                                             title="Опубликовать комментарий"
